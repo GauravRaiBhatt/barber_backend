@@ -1,0 +1,16 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: barber-backend
+  data:
+    mongodb:
+      # Use an environment variable for the URI, fallback to local if not provided
+      uri: mongodb+srv://barber:gauravraibhatt@dummycluster.05n3eio.mongodb.net/barberDB?retryWrites=true&w=majority
+      auto-index-creation: true
+
+logging:
+  level:
+    org.springframework.data.mongodb.core.MongoTemplate: DEBUG
+    org.barber: DEBUG
