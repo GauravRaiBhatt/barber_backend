@@ -1,20 +1,15 @@
 package org.barber.barber_backend.service;
 
-import org.barber.barber_backend.model.User;
-import org.barber.barber_backend.repository.UserRepository;
-import org.bson.types.ObjectId;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.barber.barber_backend.dto.RegisterUserRequestDTO;
+import org.barber.barber_backend.dto.UpdateUserRequestDTO;
+import org.barber.barber_backend.dto.UserResponseDTO;
 
-import java.util.Optional;
+import java.util.List;
 
-@Component
-public class UserService {
-
-    @Autowired
-    private UserRepository userRepository;
-
-    public Optional<User> getUserById(ObjectId id){
-        return userRepository.findById(id);
-    }
+public interface UserService {
+    UserResponseDTO registerUser(RegisterUserRequestDTO registerUserRequestDTO);
+    List<UserResponseDTO> getAllUsers();
+    UserResponseDTO getUserById(String userId);
+    UserResponseDTO updateUser(String userId, UpdateUserRequestDTO updateUserRequestDTO);
+    void deleteUser(String userId);
 }
